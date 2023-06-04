@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+      </profile>
+      <profile name="Annotation profile for Inditex Technical Test" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.26/lombok-1.18.26.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/1.5.5.Final/mapstruct-processor-1.5.5.Final.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct/1.5.5.Final/mapstruct-1.5.5.Final.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok-mapstruct-binding/0.2.0/lombok-mapstruct-binding-0.2.0.jar" />
+        </processorPath>
+        <module name="backenddevtest-boot" />
+        <module name="backenddevtest-api" />
+        <module name="backenddevtest-api-rest-product" />
+        <module name="backenddevtest-infrastructure" />
+        <module name="backenddevtest-application" />
+        <module name="backenddevtest-domain" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="17">
+      <module name="itxtechnicaltest" target="17" />
+      <module name="itxtechnicaltest-api" target="17" />
+      <module name="itxtechnicaltest-application" target="17" />
+      <module name="itxtechnicaltest-boot" target="17" />
+      <module name="itxtechnicaltest-domain" target="17" />
+      <module name="itxtechnicaltest-infrastructure" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="backenddevtest-api" options="-parameters -Amapstruct.defaultComponentModel=spring" />
+      <module name="backenddevtest-api-rest-product" options="-parameters -Amapstruct.defaultComponentModel=spring" />
+      <module name="backenddevtest-application" options="-parameters -Amapstruct.defaultComponentModel=spring" />
+      <module name="backenddevtest-boot" options="-parameters -Amapstruct.defaultComponentModel=spring" />
+      <module name="backenddevtest-clients" options="" />
+      <module name="backenddevtest-domain" options="-parameters -Amapstruct.defaultComponentModel=spring" />
+      <module name="backenddevtest-infrastructure" options="-parameters -Amapstruct.defaultComponentModel=spring" />
+    </option>
+  </component>
+</project>

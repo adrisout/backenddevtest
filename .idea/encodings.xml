@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/code/backenddevtest-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/code/backenddevtest-api/target/generated-sources/openapi/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/code/backenddevtest-application/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/code/backenddevtest-boot/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/code/backenddevtest-clients/backenddevtest-api-rest-product/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/code/backenddevtest-clients/backenddevtest-api-rest-product/target/generated-sources/openapi-client/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/code/backenddevtest-clients/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/code/backenddevtest-clients/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/code/backenddevtest-domain/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/code/backenddevtest-infrastructure/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/code/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/code/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

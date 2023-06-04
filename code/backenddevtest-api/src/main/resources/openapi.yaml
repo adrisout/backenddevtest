@@ -1,0 +1,103 @@
+openapi: 3.0.0
+info:
+  title: SimilarProducts
+  version: '1.0'
+servers:
+  - url: 'http://localhost:5000'
+paths:
+  '/product/{productId}/similar':
+    parameters:
+      - schema:
+          type: string
+        name: productId
+        in: path
+        required: true
+    get:
+      operationId: get-product-similar
+      summary: Similar products
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                 $ref: '#/components/schemas/SimilarProducts'
+        '404':
+          description: 'Product Not found'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                errors:
+                  - code: '404'
+                    description: 'Product not found'
+                    level: 'ERROR'
+                    message: 'The productId was not found'
+        405:
+          description: 'Method not allowed'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                errors:
+                  - code: '405'
+                    description: 'Method not allowed'
+                    level: 'ERROR'
+                    message: 'Request method "POST" is not supported'
+        500:
+          description: 'Internal Server Error'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                errors:
+                  - code: '500'
+                    description: 'Internal Server Error'
+                    level: 'ERROR'
+                    message: 'Internal Server Error'
+components:
+  schemas:
+    SimilarProducts:
+      type: array
+      description: 'List of similar products to a given one ordered by similarity'
+      minItems: 0
+      uniqueItems: true
+      items:
+        $ref: '#/components/schemas/ProductDetail'
+    ProductDetail:
+      description: 'Product detail'
+      type: object
+      properties:
+        id:
+          type: string
+          minLength: 1
+        name:
+          type: string
+          minLength: 1
+        price:
+          type: number
+        availability:
+          type: boolean
+      required:
+        - id
+        - name
+        - product
+        - availability
+    ErrorResponse:
+      type: object
+      properties:
+        code:
+          type: string
+          example: '400'
+        description:
+          type: string
+          example: 'Bad Request'
+        level:
+          type: string
+          example: 'ERROR'
+        message:
+          type: string
+          example: 'Missing parameter'

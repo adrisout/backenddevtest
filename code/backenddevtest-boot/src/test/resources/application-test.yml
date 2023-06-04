@@ -1,0 +1,9 @@
+server.:
+  port: 5000
+  servlet:
+    context-path: /test
+backenddevtest:
+  rest:
+    client:
+      product:
+        base-url: http://localhost:3001

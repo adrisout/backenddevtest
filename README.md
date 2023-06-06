@@ -29,7 +29,7 @@ To compile we can do the common clean install:
 ```bash
   mvn clean install
 ```
-To launch de app we should first start Docker containers with the following command:
+To launch the app we should first start Docker containers with the following command:
 ```bash
 docker-compose up -d simulado influxdb grafana
 ```
@@ -44,7 +44,7 @@ It isn't neccessary any form of authentication to make requests.
 
 To make any call we can take this as an example (all ports and context paths can be changed in application.yml file, application-test.yml for testing purposes)
 ```
-GET http://localhost:5000/test/product/1/similar
+GET http://localhost:5000/product/1/similar
 ```
 
 # Tests
@@ -55,8 +55,8 @@ Integration tests done that ensures everything is working as expected (in additi
 
 # Additional comments
 
-Some configuration has been done to the rest client. Timeout of 60000ms has been set in order to pass the "very slow" tests, but it should be decreased.
+Some configuration has been done to the rest client. Timeout of 5000ms has been set to the rest client, so maybe some  test requests could fail because of that. It can be configured in application.yml, but having a very high timeout is not a good practice.
 
-Also given OpenAPI specification has been modified so that it takes into account all errors returned by the service and its structure.
+Also given OpenAPI specification has been modified so that it takes into account all errors returned by the application and also its structure.
 
 Integration tests are run against the same mock for simplicity and it can be changed through configuration.

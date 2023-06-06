@@ -26,7 +26,7 @@ class GetProductSimilarUseCaseImplTest {
     private ProductRepository repository;
 
     @Test
-    void getProductSimilar_WhenDataOk_ReturnSimilarProduct() {
+    void getProductSimilar_whenDataOk_returnSimilarProduct() {
         final GetProductSimilarQuery query = new GetProductSimilarQuery("1");
 
         when(this.repository.findSimilarProducts(query)).thenReturn(Set.of("2","3","4"));

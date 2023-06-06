@@ -40,7 +40,7 @@ class ProductRepositoryImplTest {
 
     @SneakyThrows
     @Test
-    void getProductSimilarIds_WhenQueryDataOk_ReturnSimilarIds() {
+    void getProductSimilarIds_whenQueryDataOk_returnSimilarIds() {
         GetProductSimilarQuery query = new GetProductSimilarQuery("1");
         Set<String> similarIds = Set.of("2", "3", "4");
 
@@ -57,7 +57,7 @@ class ProductRepositoryImplTest {
 
     @SneakyThrows
     @Test
-    void findProductDetail_WhenQueryDataOk_ReturnProductDetail() {
+    void findProductDetail_whenQueryDataOk_returnProductDetail() {
         ProductDetailDTO productDetailDTO = new ProductDetailDTO();
         productDetailDTO.setName(PRODUCT_NAME_1);
         productDetailDTO.setId(PRODUCT_ID_1);
@@ -78,7 +78,7 @@ class ProductRepositoryImplTest {
 
     @SneakyThrows
     @Test
-    void findSimilarProducts_WhenProductIdDoesNotExist_ThrowProductNotFoundException() {
+    void findSimilarProducts_whenProductIdDoesNotExist_ThrowProductNotFoundException() {
         GetProductSimilarQuery query = new GetProductSimilarQuery("2");
         doThrow(new ApiException(404, "Not found")).when(this.productApi).getProductSimilarids("2");
 
@@ -87,7 +87,7 @@ class ProductRepositoryImplTest {
 
     @SneakyThrows
     @Test
-    void findSimilarProducts_WhenErrorInRestCall_ThrowRestClientException() {
+    void findSimilarProducts_whenErrorInRestCall_ThrowRestClientException() {
         GetProductSimilarQuery query = new GetProductSimilarQuery("2");
         doThrow(ApiException.class).when(this.productApi).getProductSimilarids("2");
 
@@ -96,7 +96,7 @@ class ProductRepositoryImplTest {
 
     @SneakyThrows
     @Test
-    void findProductDetail_WhenErrorInRestCall_ThrowRestClientException() {
+    void findProductDetail_whenErrorInRestCall_ThrowRestClientException() {
 
         doThrow(ApiException.class).when(this.productApi).getProductProductId("2");
 

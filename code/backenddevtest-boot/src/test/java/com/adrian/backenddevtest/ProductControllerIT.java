@@ -13,9 +13,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import java.math.BigDecimal;
-
-import static org.hamcrest.Matchers.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
 @ExtendWith({MockitoExtension.class, SpringExtension.class})
@@ -28,7 +25,7 @@ class ProductControllerIT {
     private MockMvc mockMvc;
 
     @Test
-    void getProductSimilar_WhenRequestOk_Return200OK() throws Exception {
+    void getProductSimilar_whenRequestOk_return200OK() throws Exception {
 
         mockMvc.perform(MockMvcRequestBuilders
                         .get("/product/1/similar")
@@ -40,7 +37,7 @@ class ProductControllerIT {
     }
 
     @Test
-    void getProductSimilar_WhenRequestKo_Return404NotFound() throws Exception {
+    void getProductSimilar_whenRequestKo_return404NotFound() throws Exception {
 
         mockMvc.perform(MockMvcRequestBuilders
                         .get("/product/null/similar")
@@ -49,7 +46,7 @@ class ProductControllerIT {
     }
 
     @Test
-    void getProductSimilar_WhenRequestKo_Return405NotAllowed() throws Exception {
+    void getProductSimilar_whenRequestKo_return405NotAllowed() throws Exception {
 
         mockMvc.perform(MockMvcRequestBuilders
                         .post("/product/1/similar")

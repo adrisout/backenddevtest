@@ -55,9 +55,7 @@ Integration tests done that ensures everything is working as expected (in additi
 
 # Additional comments
 
-Some configuration has been done to the rest client. Timeout of 5000ms has been set.
-
-A context path "/test" has been set.
+Some configuration has been done to the rest client. Timeout of 60000ms has been set in order to pass the "very slow" tests, but it should be decreased.
 
 Also given OpenAPI specification has been modified so that it takes into account all errors returned by the service and its structure.
 

@@ -39,7 +39,7 @@ class ProductControllerTest {
     private ProductRestMapperImpl productRestMapper;
 
     @Test
-    void getProductSimilar_WhenDataOk_Return200OK() {
+    void getProductSimilar_whenDataOk_return200OK() {
         final GetProductSimilarQuery query = new GetProductSimilarQuery(PRODUCT_ID_1);
         ProductSimilar productSimilar = new ProductSimilar(PRODUCT_ID_2, PRODUCT_NAME_2, PRODUCT_PRICE_2, PRODUCT_AVAILABLE_2);
 

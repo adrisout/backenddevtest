@@ -9,12 +9,14 @@ import com.adrian.backenddevtest.persistence.mapper.ProductMapper;
 import com.adrian.backenddevtest.repository.ProductRepository;
 import com.adrian.backenddevtest.usecase.GetProductSimilarQuery;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class ProductRepositoryImpl implements ProductRepository {
 
     private final ProductMapper productMapper;
@@ -29,7 +31,8 @@ public class ProductRepositoryImpl implements ProductRepository {
             if (404 == e.getCode()) {
                 throw new ProductNotFoundException(query.getProductId());
             } else {
-                throw new RestClientException(this.productApi.getClass().getName());
+                log.error(e.getMessage());
+                throw new RestClientException("Error when retrieving similar products");
             }
         }
     }
@@ -39,7 +42,12 @@ public class ProductRepositoryImpl implements ProductRepository {
             try {
                 return this.productMapper.toDomain(this.productApi.getProductProductId(productId));
             } catch (ApiException e) {
-                throw new RestClientException(this.productApi.getClass().getSimpleName());
+                if (404 == e.getCode()) {
+                    throw new ProductNotFoundException(productId);
+                }else {
+                    log.error(e.getMessage());
+                    throw new RestClientException("Error when retrieving product detail information");
+                }
             }
         }
 

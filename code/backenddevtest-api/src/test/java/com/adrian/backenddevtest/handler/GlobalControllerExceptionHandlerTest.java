@@ -6,12 +6,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.openapitools.model.ErrorResponseDTO;
-import org.springframework.http.HttpStatus;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseStatus;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -32,7 +29,7 @@ class GlobalControllerExceptionHandlerTest {
     private GlobalControllerExceptionHandler globalControllerExceptionHandler;
 
     @Test
-    void handleMissingServletRequestParameterException_WhenExceptionIsThrown_Return400BadRequest() {
+    void handleMissingServletRequestParameterException_whenExceptionIsThrown_return400BadRequest() {
         final MissingServletRequestParameterException missingServletRequestParameterException = new MissingServletRequestParameterException("brandId", "java.lang.Integer");
         final ErrorResponseDTO error = this.globalControllerExceptionHandler.handleMissingServletRequestParameterException(missingServletRequestParameterException);
 
@@ -41,7 +38,7 @@ class GlobalControllerExceptionHandlerTest {
     }
 
     @Test
-    void handleGenericBadRequest_WhenExceptionIsThrown_Return400BadRequest() {
+    void handleGenericBadRequest_whenExceptionIsThrown_return400BadRequest() {
         final RuntimeException runtimeException = new RuntimeException("Runtime exception test");
         final ErrorResponseDTO error = this.globalControllerExceptionHandler.handleGenericBadRequest(runtimeException);
 
@@ -50,7 +47,7 @@ class GlobalControllerExceptionHandlerTest {
     }
 
     @Test
-    void handleGenericException_WhenExceptionIsThrown_Return500InternalServerError() {
+    void handleGenericException_whenExceptionIsThrown_return500InternalServerError() {
         final Exception exception = new Exception("Exception test");
         final ErrorResponseDTO error = this.globalControllerExceptionHandler.handleGenericException(exception);
 
@@ -59,7 +56,7 @@ class GlobalControllerExceptionHandlerTest {
     }
 
     @Test
-    void handleHttpRequestMethodNotSupportedException_WhenExceptionIsThrown_Return405MethodNotAllowed() {
+    void handleHttpRequestMethodNotSupportedException_whenExceptionIsThrown_return405MethodNotAllowed() {
         final HttpRequestMethodNotSupportedException exception = new HttpRequestMethodNotSupportedException("Exception test");
         final ErrorResponseDTO error = this.globalControllerExceptionHandler.handleHttpRequestMethodNotSupportedException(exception);
 
@@ -69,7 +66,7 @@ class GlobalControllerExceptionHandlerTest {
 
 
     @Test
-    void handleRestClientException_WhenExceptionIsThrown_Return500InternalServerError() {
+    void handleRestClientException_whenExceptionIsThrown_return500InternalServerError() {
         final RestClientException restClientException = new RestClientException("Test");
         final ErrorResponseDTO errorResponseDTO = this.globalControllerExceptionHandler.handleRestClientException(restClientException);
 
@@ -78,7 +75,7 @@ class GlobalControllerExceptionHandlerTest {
     }
 
     @Test
-    void handleProductNotFoundException_WhenExceptionIsThrown_Return404NotFound() {
+    void handleProductNotFoundException_whenExceptionIsThrown_return404NotFound() {
         final ProductNotFoundException productNotFoundException = new ProductNotFoundException("Test");
         final ErrorResponseDTO errorResponseDTO = this.globalControllerExceptionHandler.handleProductNotFound(productNotFoundException);
 
